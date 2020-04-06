@@ -32,9 +32,20 @@ morse = {
 	' ':' '
 }
 str = ''
-if len(sys.argv) == 2 and (sys.argv[1].isalpha()) and sys.argv[1]:
+i = 0
+y = 0
+if len(sys.argv) == 2:
+    while i < len(sys.argv[1]):
+        if sys.argv[1][i] in morse:
+            y = 1
+        else:
+            y = 0
+            break
+        i = i + 1
+if len(sys.argv) == 2 and y == 1 and sys.argv[1]:
     for letter in sys.argv[1]:
         str = str + (morse[letter])
     print(str)
+    exit
 else:
     print ("usage: " + sys.argv[0] + " <a-zA-Z string>")
